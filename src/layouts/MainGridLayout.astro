@@ -41,7 +41,7 @@ const hasBannerLink = !!siteConfig.banner.credit.url;
 
 const mainPanelTop = siteConfig.banner.enable
 	? `calc(${BANNER_HEIGHT}vh - ${MAIN_PANEL_OVERLAPS_BANNER_HEIGHT}rem)`
-	: "5.5rem";
+	: "6rem";
 ---
 
 <Layout title={title} banner={banner} description={description} lang={lang} setOGTypeArticle={setOGTypeArticle}>
@@ -85,7 +85,7 @@ const mainPanelTop = siteConfig.banner.enable
 
             <SideBar class="mb-4 row-start-2 row-end-3 col-span-2 lg:row-start-1 lg:row-end-2 lg:col-span-1 lg:max-w-[17.5rem] onload-animation" headings={headings}></SideBar>
 
-            <div class="block lg:hidden col-span-2 onload-animation mb-4">
+            <div class="block lg:hidden col-span-2 onload-animation" style="margin-bottom: -20px">
                 <Profile></Profile>
             </div>
 
@@ -143,3 +143,11 @@ const mainPanelTop = siteConfig.banner.enable
     </div>
 </div>
 </Layout>
+
+<style>
+  @media (max-width: 1023px) {
+    #main-grid {
+      margin-top: 0rem !important;
+    }
+  }
+</style>
