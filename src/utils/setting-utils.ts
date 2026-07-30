@@ -15,6 +15,14 @@ export function getDefaultHue(): number {
 
 export function getHue(): number {
 	const stored = localStorage.getItem("hue");
+	const storedDefault = localStorage.getItem("hue-default");
+	const currentDefault = String(getDefaultHue());
+	// If config changed, use new default
+	if (storedDefault !== currentDefault) {
+		localStorage.setItem("hue-default", currentDefault);
+		localStorage.removeItem("hue");
+		return getDefaultHue();
+	}
 	return stored ? Number.parseInt(stored, 10) : getDefaultHue();
 }
 
